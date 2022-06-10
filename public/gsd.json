@@ -1,0 +1,33 @@
+{
+    "stakedcrn": {
+        "APIEnabled": true,
+        "APIVersionsSupported": [
+            1
+        ],
+        "Network": "mainnet",
+        "URL": "https://stakedcrn.net",
+        "ProportionLive":0,
+        "PoolFees":7.5
+    },
+    "dcrnvsp": {
+        "APIEnabled": true,
+        "APIVersionsSupported": [
+            1
+        ],
+        "Network": "mainnet",
+        "URL": "https://dcrnvsp.com",
+        "ProportionLive":0,
+        "PoolFees":7.5
+    },
+    "test": {
+        "APIEnabled": true,
+        "APIVersionsSupported": [
+            1
+        ],
+        "Network": "testnet",
+        "URL": "http://54.219.23.233:3000",
+        "ProportionLive":0,
+        "PoolFees":7.5
+    }
+
+}
