@@ -156,8 +156,8 @@ func (spd *Stakepoold) EvaluateStakePoolTicket(tx *wire.MsgTx, blockHeight int32
 			log.Warnf("User %s submitted ticket %v which "+
 				"has less fees than are required to use this "+
 				"Voting service and is being skipped (required: %v"+
-				", found %v)", commitAddr.Address(),
-				tx.TxHash(), feeNeeded, commitAmt)
+				", found %v) %d %d %d %v", commitAddr.Address(),
+				tx.TxHash(), feeNeeded, commitAmt, dcrutil.Amount(tx.TxOut[0].Value), fees, blockHeight, spd.PoolFees)
 
 			// Reject the entire transaction if it didn't
 			// pay the pool server fees.
