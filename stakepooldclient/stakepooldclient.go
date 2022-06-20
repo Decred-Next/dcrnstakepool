@@ -11,11 +11,11 @@ import (
 	"google.golang.org/grpc/connectivity"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrutil/v2"
-	pb "github.com/decred/dcrstakepool/backend/stakepoold/rpc/stakepoolrpc"
-	"github.com/decred/dcrstakepool/helpers"
-	"github.com/decred/dcrstakepool/models"
+	"github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8"
+	"github.com/Decred-Next/dcrnd/dcrutil/version2/v8"
+	pb "github.com/Decred-Next/dcrnstakepool/backend/stakepoold/rpc/stakepoolrpc"
+	"github.com/Decred-Next/dcrnstakepool/helpers"
+	"github.com/Decred-Next/dcrnstakepool/models"
 	"golang.org/x/net/context"
 )
 

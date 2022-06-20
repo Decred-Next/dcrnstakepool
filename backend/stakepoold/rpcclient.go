@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/rpcclient/v4"
-	"github.com/decred/dcrstakepool/backend/stakepoold/stakepool"
-	"github.com/decred/dcrstakepool/backend/stakepoold/userdata"
+	"github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8"
+	"github.com/Decred-Next/dcrnd/rpcclient/version4/v8"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/stakepool"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/userdata"
 )
 
 var requiredChainServerAPI = semver{major: 6, minor: 1, patch: 1}

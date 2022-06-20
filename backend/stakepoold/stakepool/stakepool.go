@@ -11,18 +11,18 @@ import (
 	"errors"
 	"fmt"
 	"github.com/decred/dcrd/blockchain/stake/v2"
-	"github.com/decred/dcrd/chaincfg/v2"
-	"github.com/decred/dcrd/dcrutil/v2"
-	"github.com/decred/dcrd/rpcclient/v4"
+	"github.com/Decred-Next/dcrnd/chaincfg/v8"
+	"github.com/Decred-Next/dcrnd/dcrutil/version2/v8"
+	"github.com/Decred-Next/dcrnd/rpcclient/version4/v8"
 	"strings"
 	"sync"
 	"time"
 
-	"github.com/decred/dcrd/chaincfg/chainhash"
+	"github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8"
 	wallettypes "github.com/decred/dcrwallet/rpc/jsonrpc/types"
 
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrstakepool/backend/stakepoold/userdata"
+	"github.com/Decred-Next/dcrnd/wire/v8"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/userdata"
 )
 
 var (

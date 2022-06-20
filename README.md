@@ -1,8 +1,8 @@
 # dcrstakepool
 
-[![GoDoc](https://godoc.org/github.com/decred/dcrstakepool?status.svg)](https://godoc.org/github.com/decred/dcrstakepool)
-[![Build Status](https://github.com/decred/dcrstakepool/workflows/Build%20and%20Test/badge.svg)](https://github.com/decred/dcrstakepool/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/decred/dcrstakepool)](https://goreportcard.com/report/github.com/decred/dcrstakepool)
+[![GoDoc](https://godoc.org/github.com/Decred-Next/dcrnstakepool?status.svg)](https://godoc.org/github.com/Decred-Next/dcrnstakepool)
+[![Build Status](https://github.com/Decred-Next/dcrnstakepool/workflows/Build%20and%20Test/badge.svg)](https://github.com/Decred-Next/dcrnstakepool/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Decred-Next/dcrnstakepool)](https://goreportcard.com/report/github.com/Decred-Next/dcrnstakepool)
 
 dcrstakepool is a web application which coordinates generating 1-of-2 multisig
 addresses on a pool of [dcrwallet](https://github.com/decred/dcrwallet) servers
@@ -325,7 +325,7 @@ dcrctl --wallet stakepooluserinfo "MultiSigAddress" | grep -Pzo '(?<="invalid": 
 ## Getting help
 
 To get help with `dcrstakepool` please create a
-[GitHub issue](https://github.com/decred/dcrstakepool/issues)
+[GitHub issue](https://github.com/Decred-Next/dcrnstakepool/issues)
 or the join the [Decred community](https://decred.org/community/)
 using your preferred chat platform.
 

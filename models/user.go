@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/decred/dcrd/chaincfg/chainhash"
+	"github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/go-gorp/gorp"
 	// register database driver

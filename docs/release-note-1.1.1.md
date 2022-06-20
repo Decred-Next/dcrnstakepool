@@ -12,7 +12,7 @@
 - **KNOWN ISSUE** Total tickets count reported by stakepoold may not be totally
   accurate until low fee tickets that have been added to the database can be
   marked as voted.  This will be resolved by future work.
-  ([#201](https://github.com/decred/dcrstakepool/issues/201)).
+  ([#201](https://github.com/Decred-Next/dcrnstakepool/issues/201)).
 
 ## Git Tip Upgrade Guide
 

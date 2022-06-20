@@ -17,14 +17,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/decred/dcrd/chaincfg/v2"
-	"github.com/decred/dcrd/dcrutil/v2"
-	"github.com/decred/dcrd/hdkeychain/v2"
-	"github.com/decred/dcrd/rpcclient/v4"
-	"github.com/decred/dcrstakepool/backend/stakepoold/stakepool"
-	"github.com/decred/dcrstakepool/backend/stakepoold/userdata"
-	"github.com/decred/dcrstakepool/helpers"
-	"github.com/decred/dcrstakepool/signal"
+	"github.com/Decred-Next/dcrnd/chaincfg/v8"
+	"github.com/Decred-Next/dcrnd/dcrutil/version2/v8"
+	"github.com/Decred-Next/dcrnd/hdkeychain/version2/v8"
+	"github.com/Decred-Next/dcrnd/rpcclient/version4/v8"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/stakepool"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/userdata"
+	"github.com/Decred-Next/dcrnstakepool/helpers"
+	"github.com/Decred-Next/dcrnstakepool/signal"
 	"github.com/decred/dcrwallet/wallet/v3/txrules"
 
 	// register database driver

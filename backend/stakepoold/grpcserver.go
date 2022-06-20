@@ -20,9 +20,9 @@ import (
 
 	xcontext "golang.org/x/net/context"
 
-	"github.com/decred/dcrd/certgen"
-	"github.com/decred/dcrstakepool/backend/stakepoold/rpc/server"
-	"github.com/decred/dcrstakepool/backend/stakepoold/stakepool"
+	"github.com/Decred-Next/dcrnd/certgen/v8"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/rpc/server"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/stakepool"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"

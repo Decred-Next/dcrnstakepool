@@ -10,12 +10,12 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/chaincfg/v2"
-	"github.com/decred/dcrd/hdkeychain/v2"
-	"github.com/decred/dcrstakepool/backend/stakepoold/stakepool"
-	"github.com/decred/dcrstakepool/backend/stakepoold/userdata"
-	"github.com/decred/dcrstakepool/helpers"
+	"github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8"
+	"github.com/Decred-Next/dcrnd/chaincfg/v8"
+	"github.com/Decred-Next/dcrnd/hdkeychain/version2/v8"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/stakepool"
+	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/userdata"
+	"github.com/Decred-Next/dcrnstakepool/helpers"
 )
 
 func TestCalculateFeeAddresses(t *testing.T) {

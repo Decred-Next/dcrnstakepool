@@ -6,8 +6,8 @@
 package main
 
 import (
-	"github.com/decred/dcrd/chaincfg/v2"
-	"github.com/decred/dcrd/wire"
+	"github.com/Decred-Next/dcrnd/chaincfg/v8"
+	"github.com/Decred-Next/dcrnd/wire/v8"
 )
 
 // activeNetParams is a pointer to the parameters specific to the

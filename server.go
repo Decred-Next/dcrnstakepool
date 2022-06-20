@@ -16,12 +16,12 @@ import (
 	"github.com/gorilla/csrf"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"github.com/decred/dcrd/rpcclient/v4"
-	"github.com/decred/dcrstakepool/controllers"
-	"github.com/decred/dcrstakepool/email"
-	"github.com/decred/dcrstakepool/signal"
-	"github.com/decred/dcrstakepool/stakepooldclient"
-	"github.com/decred/dcrstakepool/system"
+	"github.com/Decred-Next/dcrnd/rpcclient/version4/v8"
+	"github.com/Decred-Next/dcrnstakepool/controllers"
+	"github.com/Decred-Next/dcrnstakepool/email"
+	"github.com/Decred-Next/dcrnstakepool/signal"
+	"github.com/Decred-Next/dcrnstakepool/stakepooldclient"
+	"github.com/Decred-Next/dcrnstakepool/system"
 
 	"github.com/zenazn/goji/graceful"
 	"github.com/zenazn/goji/web"

@@ -9,11 +9,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/decred/dcrstakepool/controllers"
-	"github.com/decred/dcrstakepool/models"
-	"github.com/decred/dcrstakepool/signal"
-	"github.com/decred/dcrstakepool/stakepooldclient"
-	"github.com/decred/dcrstakepool/system"
+	"github.com/Decred-Next/dcrnstakepool/controllers"
+	"github.com/Decred-Next/dcrnstakepool/models"
+	"github.com/Decred-Next/dcrnstakepool/signal"
+	"github.com/Decred-Next/dcrnstakepool/stakepooldclient"
+	"github.com/Decred-Next/dcrnstakepool/system"
 	"github.com/decred/slog"
 	"github.com/jrick/logrotate/rotator"
 )

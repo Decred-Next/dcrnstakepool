@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/decred/dcrd/rpcclient/v4"
+	"github.com/Decred-Next/dcrnd/rpcclient/version4/v8"
 )
 
 const (

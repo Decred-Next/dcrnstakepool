@@ -5,13 +5,13 @@
 package stakepool
 
 import (
-	"github.com/decred/dcrd/chaincfg/v2"
-	"github.com/decred/dcrd/dcrutil/v2"
+	"github.com/Decred-Next/dcrnd/chaincfg/v8"
+	"github.com/Decred-Next/dcrnd/dcrutil/version2/v8"
 	"math"
 	"math/big"
 	"sync"
 
-	blockchain "github.com/decred/dcrd/blockchain/standalone"
+	blockchain "github.com/Decred-Next/dcrnd/blockchain/standalone/v8"
 )
 
 // ValidPoolFeeRate tests to see if a pool fee is a valid percentage from
