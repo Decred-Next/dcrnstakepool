@@ -25,7 +25,7 @@ import (
 	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/userdata"
 	"github.com/Decred-Next/dcrnstakepool/helpers"
 	"github.com/Decred-Next/dcrnstakepool/signal"
-	"github.com/decred/dcrwallet/wallet/v3/txrules"
+	"github.com/Decred-Next/dcrnwallet/wallet/version3/v8/txrules"
 
 	// register database driver
 	_ "github.com/go-sql-driver/mysql"

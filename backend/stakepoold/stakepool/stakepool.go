@@ -10,7 +10,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"github.com/decred/dcrd/blockchain/stake/v2"
+	"github.com/Decred-Next/dcrnd/blockchain/stake/version2/v8"
 	"github.com/Decred-Next/dcrnd/chaincfg/v8"
 	"github.com/Decred-Next/dcrnd/dcrutil/version2/v8"
 	"github.com/Decred-Next/dcrnd/rpcclient/version4/v8"
@@ -19,7 +19,7 @@ import (
 	"time"
 
 	"github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8"
-	wallettypes "github.com/decred/dcrwallet/rpc/jsonrpc/types"
+	wallettypes "github.com/Decred-Next/dcrnwallet/rpc/jsonrpc/types/version14/v8"
 
 	"github.com/Decred-Next/dcrnd/wire/v8"
 	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/userdata"
