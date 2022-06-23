@@ -14,7 +14,7 @@ import (
 	"github.com/Decred-Next/dcrnstakepool/signal"
 	"github.com/Decred-Next/dcrnstakepool/stakepooldclient"
 	"github.com/Decred-Next/dcrnstakepool/system"
-	"github.com/decred/slog"
+	"github.com/Decred-Next/slog/v8"
 	"github.com/jrick/logrotate/rotator"
 )
 

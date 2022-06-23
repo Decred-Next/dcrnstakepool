@@ -13,7 +13,7 @@ import (
 	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/stakepool"
 	"github.com/Decred-Next/dcrnstakepool/backend/stakepoold/userdata"
 	"github.com/Decred-Next/dcrnstakepool/signal"
-	"github.com/decred/slog"
+	"github.com/Decred-Next/slog/v8"
 	"github.com/jrick/logrotate/rotator"
 )
 

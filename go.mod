@@ -4,22 +4,22 @@ go 1.12
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.3.3
-	github.com/Decred-Next/dcrnd/blockchain/stake/version2/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/blockchain/standalone/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/certgen/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/chaincfg/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/dcrec/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/dcrutil/version2/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/hdkeychain/version2/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/rpcclient/version4/v8 v8.0.8
-	github.com/Decred-Next/dcrnd/wire/v8 v8.0.8
-	github.com/Decred-Next/dcrndata/api/types/v8 v8.0.15
-	github.com/Decred-Next/dcrnwallet/rpc/jsonrpc/types/version14/v8 v8.0.8
-	github.com/Decred-Next/dcrnwallet/wallet/version3/v8 v8.0.2
+	github.com/Decred-Next/dcrnd/blockchain/stake/version2/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/blockchain/standalone/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/certgen/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/chaincfg/chainhash/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/chaincfg/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/dcrec/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/dcrutil/version2/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/hdkeychain/version2/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/rpcclient/version4/v8 v8.0.9
+	github.com/Decred-Next/dcrnd/wire/v8 v8.0.9
+	github.com/Decred-Next/dcrndata/api/types/v8 v8.0.16
+	github.com/Decred-Next/dcrnwallet/rpc/jsonrpc/types/version14/v8 v8.0.9
+	github.com/Decred-Next/dcrnwallet/wallet/version3/v8 v8.0.9
+	github.com/Decred-Next/slog/v8 v8.0.1
 	github.com/apoydence/onpar v0.0.0-20190519213022-ee068f8ea4d1 // indirect
 	github.com/dchest/captcha v0.0.0-20170622155422-6a29415a8364
-	github.com/decred/slog v1.0.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-gorp/gorp v2.0.1-0.20181104192722-f3677d4a0a88+incompatible
 	github.com/go-sql-driver/mysql v1.4.1
