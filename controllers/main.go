@@ -24,7 +24,7 @@ import (
 	"github.com/Decred-Next/dcrnd/chaincfg/v8"
 	"github.com/Decred-Next/dcrnd/dcrutil/version2/v8"
 	"github.com/Decred-Next/dcrnd/hdkeychain/version2/v8"
-	dcrdatatypes "github.com/Decred-Next/dcrndata/api/types/v8"
+	dcrdatatypes "github.com/Decred-Next/dcrndata/v8/api/types"
 	"github.com/Decred-Next/dcrnstakepool/email"
 	"github.com/Decred-Next/dcrnstakepool/helpers"
 	"github.com/Decred-Next/dcrnstakepool/internal/version"
