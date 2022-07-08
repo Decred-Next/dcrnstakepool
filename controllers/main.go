@@ -296,7 +296,7 @@ func (controller *MainController) APIAddress(c web.C, r *http.Request) ([]string
 	user, _ := models.GetUserById(dbMap, c.Env["APIUserID"].(int64))
 
 	if len(user.UserPubKeyAddr) > 0 {
-		return nil, codes.AlreadyExists, "address error", errors.New("address already submitted")
+		return nil, codes.AlreadyExists, "address error", errors.New("The KEY has been used, please regenerate a new KEY")
 	}
 
 	userPubKeyAddr := r.FormValue("UserPubKeyAddr")
