@@ -15,7 +15,7 @@ import (
 
 	"github.com/gorilla/csrf"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-
+	"github.com/Decred-Next/dcrnd/chaincfg/v8"
 	"github.com/Decred-Next/dcrnd/rpcclient/version4/v8"
 	"github.com/Decred-Next/dcrnstakepool/controllers"
 	"github.com/Decred-Next/dcrnstakepool/email"
@@ -66,6 +66,13 @@ func runMain(ctx context.Context) error {
 			logRotator.Close()
 		}
 	}()
+	if cfg.TestNet{
+		params := chaincfg.TestNet3Params()
+		log.Infof("test net:%d",uint32(params.Net))
+	}else if !cfg.TestNet && !cfg.SimNet {
+		params := chaincfg.MainNetParams()
+		log.Infof("main net:%d",uint32(params.Net))
+	}
 
 	var application = &system.Application{}
 

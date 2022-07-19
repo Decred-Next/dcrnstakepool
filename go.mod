@@ -37,3 +37,10 @@ require (
 	golang.org/x/net v0.0.0-20210525063256-abc453219eb5
 	google.golang.org/grpc v1.32.0
 )
+
+
+replace (
+	github.com/Decred-Next/dcrnd/chaincfg/v8 => ../dcrnd/chaincfg
+	github.com/Decred-Next/dcrnd/wire/v8 => ../dcrnd/wire
+
+)

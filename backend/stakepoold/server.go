@@ -134,7 +134,14 @@ func runMain(ctx context.Context) error {
 			logRotator.Close()
 		}
 	}()
-
+	if cfg.TestNet{
+		params := chaincfg.TestNet3Params()
+		log.Infof("test net:%d",uint32(params.Net))
+	}else if !cfg.TestNet && !cfg.SimNet {
+		params := chaincfg.MainNetParams()
+		log.Infof("main net:%d",uint32(params.Net))
+	}
+	
 	log.Infof("Network: %s", activeNetParams.Params.Name)
 	log.Infof("Home dir: %s", cfg.HomeDir)
 
