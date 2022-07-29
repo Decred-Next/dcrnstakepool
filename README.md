@@ -1,11 +1,11 @@
-# dcrstakepool
+# dcrnstakepool
 
-[![GoDoc](https://godoc.org/github.com/decred/dcrstakepool?status.svg)](https://godoc.org/github.com/decred/dcrstakepool)
-[![Build Status](https://github.com/decred/dcrstakepool/workflows/Build%20and%20Test/badge.svg)](https://github.com/decred/dcrstakepool/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/decred/dcrstakepool)](https://goreportcard.com/report/github.com/decred/dcrstakepool)
+[![GoDoc](https://godoc.org/github.com/decred/dcrnstakepool?status.svg)](https://godoc.org/github.com/decred/dcrnstakepool)
+[![Build Status](https://github.com/decred/dcrnstakepool/workflows/Build%20and%20Test/badge.svg)](https://github.com/decred/dcrnstakepool/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/decred/dcrnstakepool)](https://goreportcard.com/report/github.com/decred/dcrnstakepool)
 
-dcrstakepool is a web application which coordinates generating 1-of-2 multisig
-addresses on a pool of [dcrwallet](https://github.com/decred/dcrwallet) servers
+dcrnstakepool is a web application which coordinates generating 1-of-2 multisig
+addresses on a pool of [dcrnwallet](https://github.com/decred/dcrnwallet) servers
 so users can purchase [proof-of-stake tickets](https://docs.decred.org/mining/proof-of-stake/)
 on the [Decred](https://decred.org/) network and have the pool of wallet servers
 vote on their behalf when the ticket is selected.
@@ -19,10 +19,10 @@ These names are used interchangably in this repository.
 
 ![Voting Service Architecture](docs/img/architecture.png)
 
-- It is highly recommended to use at least 2 dcrd+dcrwallet+stakepoold
+- It is highly recommended to use at least 2 dcrnd+dcrnwallet+stakepoold
   nodes (backend servers) for production use on mainnet.
   One backend server can be used on testnet.
-- Running dcrstakepool on mainnet is documented further at
+- Running dcrnstakepool on mainnet is documented further at
   [https://docs.decred.org](https://docs.decred.org/advanced/operating-a-vsp/).
 - The architecture is subject to change in the future to lessen the dependence
   on MySQL.
@@ -31,7 +31,7 @@ These names are used interchangably in this repository.
 ## Test Harness
 
 A test harness is provided in `./harness.sh`. The test harness uses tmux to start
-a dcrd node, multiple dcrwallet and stakepoold instances, and finally a dcrstakepool
+a dcrnd node, multiple dcrnwallet and stakepoold instances, and finally a dcrnstakepool
 instance. It uses hard-coded wallet seeds and pubkeys, and as a result it is only
 suitable for use on testnet. Further documentation can be found in `./harness.sh`.
 
@@ -40,7 +40,7 @@ suitable for use on testnet. Further documentation can be found in `./harness.sh
 
 - [Go](https://golang.org) 1.12 or newer (1.13 is recommended).
 - MySQL
-- Nginx or other web server to proxy to dcrstakepool
+- Nginx or other web server to proxy to dcrnstakepool
 
 
 ## Installation
@@ -71,15 +71,15 @@ Please defer to the 1.2.0 [release notes](docs/release-note-1.2.0.md/#recommende
 
 ### Pre-requisites
 
-These instructions assume you are familiar with dcrd/dcrwallet.
+These instructions assume you are familiar with dcrnd/dcrnwallet.
 
-- Create basic dcrd/dcrwallet/dcrctl config files with usernames, passwords,
+- Create basic dcrnd/dcrnwallet/dcrnctl config files with usernames, passwords,
   rpclisten, and network set appropriately within them or run example commands
   with additional flags as necessary.
 
-- Build/install dcrd and dcrwallet from latest master.
+- Build/install dcrnd and dcrnwallet from latest master.
 
-- Run dcrd instances and let them fully sync.
+- Run dcrnd instances and let them fully sync.
 
 
 ### Voting service fees/cold wallet
@@ -89,16 +89,16 @@ These instructions assume you are familiar with dcrd/dcrwallet.
 - From your local machine...
 
 ```bash
-$ dcrwallet --create
-$ dcrwallet
+$ dcrnwallet --create
+$ dcrnwallet
 ```
 
 - Get the master pubkey for the account you wish to use. This will be needed to
-  configure dcrwallet and dcrstakepool.
+  configure dcrnwallet and dcrnstakepool.
 
 ```bash
-$ dcrctl --wallet createnewaccount stakepoolfees
-$ dcrctl --wallet getmasterpubkey stakepoolfees
+$ dcrnctl --wallet createnewaccount stakepoolfees
+$ dcrnctl --wallet getmasterpubkey stakepoolfees
 ```
 
 - Mark 10000 addresses in use for the account so the wallet will recognize
@@ -106,7 +106,7 @@ $ dcrctl --wallet getmasterpubkey stakepoolfees
   UserId 2 to address 2, and so on.
 
 ```bash
-$ dcrctl --wallet accountsyncaddressindex teststakepoolfees 0 10000
+$ dcrnctl --wallet accountsyncaddressindex teststakepoolfees 0 10000
 ```
 
 ### Voting service voting wallets
@@ -118,27 +118,27 @@ $ dcrctl --wallet accountsyncaddressindex teststakepoolfees 0 10000
 
 ```bash
 $ ssh walletserver1
-$ dcrwallet --create
+$ dcrnwallet --create
 ```
 
-- Start a properly configured dcrwallet and unlock it. See
-  sample-dcrwallet.conf.
+- Start a properly configured dcrnwallet and unlock it. See
+  sample-dcrnwallet.conf.
 - From your local machine...
 
 ```bash
-$ cp sample-dcrwallet.conf dcrwallet.conf
-$ vim dcrwallet.conf
-$ scp dcrwallet.conf walletserver1:~/.dcrwallet/
+$ cp sample-dcrnwallet.conf dcrnwallet.conf
+$ vim dcrnwallet.conf
+$ scp dcrnwallet.conf walletserver1:~/.dcrnwallet/
 $ ssh walletserver1
-$ dcrwallet
+$ dcrnwallet
 ```
 
 - Get the master pubkey from the default account.  This will be used for
-  votingwalletextpub in dcrstakepool.conf.
+  votingwalletextpub in dcrnstakepool.conf.
 
 ```bash
 $ ssh walletserver1
-$ dcrctl --wallet getmasterpubkey default
+$ dcrnctl --wallet getmasterpubkey default
 ```
 
 ### MySQL
@@ -187,16 +187,16 @@ $ scp stakepoold walletserver1:~/
 $ scp stakepoold walletserver2:~/
 ```
 
-### dcrstakepool setup
+### dcrnstakepool setup
 
-- Create the .dcrstakepool directory and copy dcrwallet certs to it:
+- Create the .dcrnstakepool directory and copy dcrnwallet certs to it:
 
 ```bash
 $ ssh frontendserver
-$ mkdir ~/.dcrstakepool
-$ cd ~/.dcrstakepool
-$ scp walletserver1:~/.dcrwallet/rpc.cert wallet1.cert
-$ scp walletserver2:~/.dcrwallet/rpc.cert wallet2.cert
+$ mkdir ~/.dcrnstakepool
+$ cd ~/.dcrnstakepool
+$ scp walletserver1:~/.dcrnwallet/rpc.cert wallet1.cert
+$ scp walletserver2:~/.dcrnwallet/rpc.cert wallet2.cert
 $ scp walletserver1:~/.stakepoold/rpc.cert stakepoold1.cert
 $ scp walletserver2:~/.stakepoold/rpc.cert stakepoold2.cert
 ```
@@ -205,16 +205,16 @@ $ scp walletserver2:~/.stakepoold/rpc.cert stakepoold2.cert
 - From your local machine...
 
 ```bash
-$ cp sample-dcrstakepool.conf dcrstakepool.conf
-$ vim dcrstakepool.conf
-$ scp dcrstakepool.conf frontendserver:~/.dcrstakepool/
+$ cp sample-dcrnstakepool.conf dcrnstakepool.conf
+$ vim dcrnstakepool.conf
+$ scp dcrnstakepool.conf frontendserver:~/.dcrnstakepool/
 ```
-- Build and copy the entire dcrstakepool folder to your frontend.
+- Build and copy the entire dcrnstakepool folder to your frontend.
 - From your local machine...
 
 ```bash
 $ go build
-$ scp -r ../dcrstakepool frontendserver:~/
+$ scp -r ../dcrnstakepool frontendserver:~/
 ```
 
 ## Running
@@ -228,27 +228,27 @@ $ ssh walletserver1
 $ ./stakepoold
 ```
 
-### dcrstakepool
+### dcrnstakepool
 
-Log into your frontend and run dcrstakepool
+Log into your frontend and run dcrnstakepool
 
 ```bash
 $ ssh frontendserver
-$ cd dcrstakepool
-$ ./dcrstakepool
+$ cd dcrnstakepool
+$ ./dcrnstakepool
 ```
-To run `dcrstakepool` from another folder, such as `/opt/dcrstakepool`, it is
-necessary to copy (1) the `dcrstakepool` executable generated by `go build`, (2)
+To run `dcrnstakepool` from another folder, such as `/opt/dcrnstakepool`, it is
+necessary to copy (1) the `dcrnstakepool` executable generated by `go build`, (2)
 the `public` folder, and (3) the `views` folder into the other folder.
 
-By default, `dcrstakepool` looks for the `public` and `views` folders in the
-same parent directory as the `dcrstakepool` executable. If you wish to run
-dcrstakepool from a different directory you will need to change **publicpath**
+By default, `dcrnstakepool` looks for the `public` and `views` folders in the
+same parent directory as the `dcrnstakepool` executable. If you wish to run
+dcrnstakepool from a different directory you will need to change **publicpath**
 and **templatepath** from their relative paths to an absolute path.
 
 ## Development
 
-If you are modifying templates, sending the USR1 signal to the dcrstakepool
+If you are modifying templates, sending the USR1 signal to the dcrnstakepool
 process will trigger a template reload.
 
 ### Protoc
@@ -261,18 +261,18 @@ stakepoold, the following are required:
 
 ## Operations
 
-- dcrstakepool will connect to the database or error out if it cannot do so.
+- dcrnstakepool will connect to the database or error out if it cannot do so.
 
-- dcrstakepool will create the stakepool.Users table automatically if it doesn't
+- dcrnstakepool will create the stakepool.Users table automatically if it doesn't
   exist.
 
-- dcrstakepool attempts to connect to all of the stakepoold servers on startup or
+- dcrnstakepool attempts to connect to all of the stakepoold servers on startup or
   error out if it cannot do so.
 
-- dcrstakepool takes a user's pubkey, validates it, calls getnewaddress on all
+- dcrnstakepool takes a user's pubkey, validates it, calls getnewaddress on all
   the wallet servers, then createmultisig, and finally importscript.  If any of
   these RPCs fail or returns inconsistent results, the RPC client built-in to
-  dcrstakepool will shut down and will not operate until it has been restarted.
+  dcrnstakepool will shut down and will not operate until it has been restarted.
   Wallets should be verified to be in sync before restarting.
 
 - User API Tokens have an issuer field set to baseURL from the configuration file.
@@ -291,11 +291,11 @@ were processed.
 
 ### For v1.1.1 and below
 
-If a user pays an incorrect fee you may add their tickets like so (requires dcrd
+If a user pays an incorrect fee you may add their tickets like so (requires dcrnd
 running with `txindex=1`):
 
 ```bash
-dcrctl --wallet stakepooluserinfo "MultiSigAddress" | grep -Pzo '(?<="invalid": \[)[^\]]*' | tr -d , | xargs -Itickethash dcrctl --wallet getrawtransaction tickethash | xargs -Itickethex dcrctl --wallet addticket "tickethex"
+dcrnctl --wallet stakepooluserinfo "MultiSigAddress" | grep -Pzo '(?<="invalid": \[)[^\]]*' | tr -d , | xargs -Itickethash dcrnctl --wallet getrawtransaction tickethash | xargs -Itickethex dcrnctl --wallet addticket "tickethex"
 ```
 
 ## Backups, monitoring, security considerations
@@ -304,7 +304,7 @@ dcrctl --wallet stakepooluserinfo "MultiSigAddress" | grep -Pzo '(?<="invalid": 
   Backups should be transferred off-site.  If using binary backups, do a test
   restore. For .sql files, verify visually.
 
-- A monitoring system with alerting should be pointed at dcrstakepool and
+- A monitoring system with alerting should be pointed at dcrnstakepool and
   tested/verified to be operating properly.  There is a hidden /status page
   which throws 500 if the RPC client is shutdown.  If your monitoring system
   supports it, add additional points of verification such as: checking that the
@@ -320,16 +320,16 @@ dcrctl --wallet stakepooluserinfo "MultiSigAddress" | grep -Pzo '(?<="invalid": 
 
 - In the case of a total failure of a wallet server:
   - Restore the failed wallet(s) from seed.
-  - Restart the dcrstakepool process to allow automatic syncing to occur.
+  - Restart the dcrnstakepool process to allow automatic syncing to occur.
 
 ## Getting help
 
-To get help with `dcrstakepool` please create a
-[GitHub issue](https://github.com/decred/dcrstakepool/issues)
+To get help with `dcrnstakepool` please create a
+[GitHub issue](https://github.com/decred/dcrnstakepool/issues)
 or the join the [Decred community](https://decred.org/community/)
 using your preferred chat platform.
 
 ## License
 
-dcrstakepool is licensed under the [copyfree](http://copyfree.org) MIT/X11 and
+dcrnstakepool is licensed under the [copyfree](http://copyfree.org) MIT/X11 and
 ISC Licenses.
